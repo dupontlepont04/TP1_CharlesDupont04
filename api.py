@@ -5,6 +5,7 @@
 import requests
 
 ##test
+#test2
 url_initial = 'https://python.gel.ulaval.ca/quoridor/api/'
 
 def lister_parties(idul):

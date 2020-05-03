@@ -1,7 +1,7 @@
 """ Prgramme qui permet de jouer au jeu Quoridor contre un serveur soit automtisé ou en mode manuel
     avec soit un affichage ASCII ou un affichage graphique"""
 
-# Importation des modules nécessaires
+# Importation des modules nécessaires #premier commit main
 
 import argparse
 import copy

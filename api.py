@@ -7,6 +7,7 @@ import requests
 
 url_initial = 'https://python.gel.ulaval.ca/quoridor/api/'
 
+
 def lister_parties(idul):
     """Lister les parties"""
     rep = requests.get(url_initial+'lister/', params={'idul': idul})

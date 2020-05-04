@@ -6,6 +6,7 @@ import requests
 
 ##test
 #test2
+#test3
 url_initial = 'https://python.gel.ulaval.ca/quoridor/api/'
 
 

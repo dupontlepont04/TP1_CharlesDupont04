@@ -14,7 +14,8 @@ class Quoridor:
 
             # S'assurer que le nombre de murs est entre 0 et 10
         if not (self.joueurs[0]['murs'] or self.joueurs[1]['murs']) in range(0, 11):
-            raise QuoridorError("Le nombre de murs qu'un joueur peut placer est plus grand que 10,ou négatif.")
+            raise QuoridorError("Le nombre de murs qu'un "
+                                "joueur peut placer est plus grand que 10,ou négatif.")
 
             # S'assurer que la position d'un joueur soit valide
         if isinstance(joueurs[0], dict) or isinstance(joueurs[1], dict):
@@ -94,7 +95,8 @@ class Quoridor:
             grille[chiffres_verticaux].insert(0, str(9 - chiffres_verticaux) + ' | ')
 
         grille.append(['--|-----------------------------------\n'])
-        grille.append([' ', ' ', '| ', '1', '   2', '   3', '   4', '   5', '   6', '   7', '   8', '   9'])
+        grille.append([' ', ' ', '| ', '1', '   2', '   '
+                                                    '3', '   4', '   5', '   6', '   7', '   8', '   9'])
         grille[8] = grille[8][:36]
 
         for position in self.murs['horizontaux']:
@@ -172,7 +174,8 @@ class Quoridor:
 
                                 try:
                                     self.placer_mur(1, (self.joueurs[1]['pos'][0] - 1,
-                                                        self.joueurs[1]['pos'][1] - 1), 'horizontal')
+                                                        self.joueurs[1]['pos'][1] - 1),
+                                                        'horizontal')
 
                                 except QuoridorError:
 
@@ -219,7 +222,8 @@ class Quoridor:
             if len(chemin_joueur_2) > len(chemin_joueur_1):
 
                 try:
-                    self.placer_mur(2, (self.joueurs[0]['pos'][0], self.joueurs[0]['pos'][1] + 1), 'horizontal')
+                    self.placer_mur(2, (self.joueurs[0]['pos'][0],
+                                        self.joueurs[0]['pos'][1] + 1), 'horizontal')
 
                 except QuoridorError:
 
@@ -258,11 +262,14 @@ class Quoridor:
             raise QuoridorError('Un mur occupe déjà cette position.')
 
         if orientation != 'horizontaux':
-            raise QuoridorError("La position est invalide pour cette orientation. (Ce n'est pas un mur horizontal)")
+            raise QuoridorError("La position est invalide"
+                                " pour cette orientation. "
+                                "(Ce n'est pas un mur horizontal)")
         else:
             # Sinon les positions appartienent à l'argument 'position'
             a, b = position
-            if a not in range(2, 10) or b not in range(1, 9):
+            if a not in range(2, 10) or \
+                    b not in range(1, 9):
                 raise QuoridorError("La position d'un mur est invalide.")
 
             # S'assurer que le placement d'un mur horizontal n'est pas en superposition avec un autre mur
@@ -285,14 +292,17 @@ class Quoridor:
                 raise QuoridorError("Position d'un mur est invalide : les murs enferment un joueur")
 
         if orientation != 'verticaux':
-            raise QuoridorError("La position est invalide pour cette orientation. (Ce n'est pas un mur vertical)")
+            raise QuoridorError("La position est invalide pour cette orientation."
+                                " (Ce n'est pas un mur vertical)")
         else:
             a, b = position
             if a not in range(1, ) or b not in range(2, 10):
-                raise QuoridorError("La position d'un mur est invalide.")
+                raise QuoridorError("La position "
+                                    "d'un mur est invalide.")
 
         # S'assurer que le placement d'un mur vertical n'est pas en superposition avec un autre mur
-        if ((position[0] + 1, position[1]) in self.murs['verticaux']) or (position[0] - 1, position[1])\
+        if ((position[0] + 1, position[1])
+            in self.murs['verticaux']) or (position[0] - 1, position[1])\
                 in self.murs['verticaux']:
             raise QuoridorError("Position d'un mur vertical est invalide : superposition avec un autre mur")
 

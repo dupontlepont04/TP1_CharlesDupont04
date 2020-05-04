@@ -4,9 +4,7 @@
 # Importation des modules nécessaires #premier commit main
 
 import argparse
-import copy
-import api
-import quoridorx
+
 
 def analyser_commande():
     """Permet d'analyser ce que l'utilisateur

@@ -7,5 +7,4 @@ class QuoridorX(quoridor.Quoridor):
     """Permet d'afficher l'état actuel du damier dans une fenêtre graphique """
 
     def __init__(self, joueurs, murs=None):
-        super().__init__(self,joueurs, murs)
-
+        super().__init__(self, joueurs, murs)
